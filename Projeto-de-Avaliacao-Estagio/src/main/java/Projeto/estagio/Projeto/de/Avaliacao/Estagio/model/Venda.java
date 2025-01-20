@@ -7,6 +7,7 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +15,7 @@ import jakarta.persistence.Table;
 public class Venda {
     @Id
     private int id;
-    @Column
+    @ManyToOne
     private Cliente cliente;
     @Column
     private List<Produto> produtos;
@@ -34,6 +35,7 @@ public class Venda {
         this.precoTotal = precoTotal;
         this.dataVenda = dataVenda;
         this.formaDePag = formaDePag;
+        clienteValidator(cliente);
     }
     //Getters and Setters
     public int getId() {
@@ -72,6 +74,13 @@ public class Venda {
     }
     public void setFormaDePag(String formaDePag) {
         this.formaDePag = formaDePag;
+    }
+
+    //metodo para verificar se cliente é nulo
+    public void clienteValidator(Cliente c)
+    {
+        if (c == null)
+            throw new IllegalArgumentException("Cliente não pode ser nulo.");
     }
 
 }
