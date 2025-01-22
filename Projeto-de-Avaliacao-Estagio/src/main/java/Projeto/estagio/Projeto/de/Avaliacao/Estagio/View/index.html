@@ -11,24 +11,37 @@
     <header>
         <h1>Projeto de Avaliação Estágio Intesis</h1>
         <p>Feito por: Gabriel Volpato</p>
-    </header>
-    
+    </header> 
     <main>
         <section>
+            <!-- Form de consulta de Clientes -->
             <div class="consultaCont">
                 <h2>Consulta de Clientes</h2>
                 <form id="formConsultaClientes">
                     <div class="formInput">
-                        <label for="cliente">Id:</label>
-                        <input type="text" id="cliente" name="cliente" required>
+                        <label for="clienteId">Id:</label>
+                        <input type="text" id="inputForm" name="clienteId" required>
                     </div>
-                    <button type="submit">Consultar</button>
+                    <div class="formInput">
+                        <label for="clienteNome">Nome:</label>
+                        <input type="text" id="inputForm" name="clienteNome" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="clienteCpf">Cpf:</label>
+                        <input type="text" id="inputForm" name="clienteCpf" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="clienteTel">Telefone:</label>
+                        <input type="text" id="inputForm" name="clienteTel" required>
+                    </div>
+                    <button type="consult">Consultar</button>
                     <button type="add">Inserir</button>
+                    <button type="remove">Remover</button>
                 </form>
                 <div class="tabelaConsulta">
                     <h3>Resultado da Consulta:</h3>
-                    <table id="tblClientes">
-                        <thead>
+                    <table class="tbl">
+                        <thead class="tblHeader">
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>
@@ -37,7 +50,155 @@
                                 <th>Telefone</th>
                             </tr>
                         </thead>
-                        <tbody id="tbodyClientes">
+                        <tbody class="tblBody">
+                            <tr>
+                                <td>ID</td>
+                                <td>Nome</td>
+                                <td>CPF</td>
+                                <td>Endereço</td>
+                                <td>Telefone</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Tabela de Cadastro de Clientes -->
+            <div class="cadastroCont">
+                <h2>Cadastro de Clientes</h2>
+                <form id="formCadastroClientes">
+                    <div class="formInput">
+                        <label for="clienteNome">Nome:</label>
+                        <input type="text" id="inputForm" name="clienteNome" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="clienteCpf">CPF:</label>
+                        <input type="text" id="inputForm" name="clienteCpf" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="clienteEnd">Endereço:</label>
+                        <input type="text" id="inputForm" name="clienteEnd" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="clienteTel">Telefone:</label>
+                        <input type="text" id="inputForm" name="clienteTel" required>
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                    <button type="cancel">Cancelar</button>
+                    <button type="update">Atualizar</button>
+                </form>
+            </div>
+        </section>
+        <section>
+            <!-- Form de consulta de produtos -->
+            <div class="consultaCont">
+                <h2>Consulta de Produtos</h2>
+                <form id="formConsultaProdutos">
+                    <div class="formInput">
+                        <label for="produto">Id:</label>
+                        <input type="text" class="inputForm" name="produtoId" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="cliente">Nome:</label>
+                        <input type="text" id="inputForm" name="produtoName" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="cliente">Categoria:</label>
+                        <input type="text" id="inputForm" name="produtoCateg" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="cliente">Preço:</label>
+                        <input type="text" id="inputForm" name="produtoPrice" required>
+                    </div>
+                    <button type="consult">Consultar</button>
+                    <button type="add">Inserir</button>
+                    <button type="remove">Remover</button>
+                    <button type="update">Atualizar</button>
+                </form>
+                <div class="tabelaConsulta">
+                    <h3>Resultado da Consulta:</h3>
+                    <table class="tbl">
+                        <thead class="tblHeader">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tblBody">
+                            <tr>
+                                <td>ID</td>
+                                <td>Nome</td>
+                                <td>Descrição</td>
+                                <td>Categoria</td>
+                                <td>Preço</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="cadastroCont">
+                <!-- Tabela de cadastro de Produtos -->
+                <h2>Cadastro de Produtos</h2>
+                <form id="formCadastroProdutos">
+                    <div class="formInput">
+                        <label for="produtoNome">Nome:</label>
+                        <input type="text" id="inputForm" name="produtoNome" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="produtoDesc">Descrição:</label>
+                        <input type="text" id="inputForm" name="produtoDesc" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="produtoCateg">Categoria:</label>
+                        <input type="text" id="inputForm" name="produtoCateg" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="produtoPrice">Preço:</label>
+                        <input type="text" id="inputForm" name="produtoPrice" required>
+                    </div>
+                    <button type="submit">Cadastrar</button>
+                    <button type="cancel">Cancelar</button>
+                    <button type="update">Atualizar</button>
+                </form>
+            </div>
+        </section>
+        <section>            
+            <!-- Form de consulta de vendas -->
+            <div class="consultaCont">
+                <h2>Consulta de Vendas</h2>
+                <form id="formConsultaVendas">
+                    <div class="formInput">
+                        <label for="vendaId">Id:</label>
+                        <input type="text" class="inputForm" name="vendaId" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="vendaIdC">Id do Cliente:</label>
+                        <input type="text" id="inputForm" name="vendaIdC" required>
+                    </div>
+                    <div class="formInput">
+                        <label for="vendaData">Data da venda:</label>
+                        <input type="text" id="inputForm" name="vendaData" required>
+                    </div>
+                    <button type="consult">Consultar</button>
+                    <button type="add">Inserir</button>
+                    <button type="remove">Remover</button>
+                    <button type="update">Atualizar</button>
+                </form>
+                <div class="tabelaConsulta">
+                    <h3>Resultado da Consulta:</h3>
+                    <table class="tbl">
+                        <thead class="tblHeader">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Endereço</th>
+                                <th>Telefone</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tblBody">
                             <tr>
                                 <td>ID</td>
                                 <td>Nome</td>
@@ -50,31 +211,31 @@
                 </div>
             </div>
             <div class="cadastroCont">
-                <h2>Cadastro de Clientes</h2>
-                <form id="formCadastroClientes">
+                <!-- Tabela de cadastro de Vendas -->
+                <h2>Cadastro de Vendas</h2>
+                <form id="formCadastroVenda">
                     <div class="formInput">
-                        <label for="nome">Nome:</label>
-                        <input type="text" id="nome" name="nome" required>
+                        <label for="vendaNome">Nome:</label>
+                        <input type="text" id="inputForm" name="vendaNome" required>
                     </div>
                     <div class="formInput">
-                        <label for="cpf">CPF:</label>
-                        <input type="text" id="cpf" name="cpf" required>
+                        <label for="endereco">Descrição:</label>
+                        <input type="text" id="inputForm" name="vendaDesc" required>
                     </div>
                     <div class="formInput">
-                        <label for="endereco">Endereço:</label>
-                        <input type="text" id="endereco" name="endereco" required>
+                        <label for="endereco">Categoria:</label>
+                        <input type="text" id="inputForm" name="vendaCateg" required>
                     </div>
                     <div class="formInput">
-                        <label for="telefone">Telefone:</label>
-                        <input type="text" id="telefone" name="telefone" required>
+                        <label for="telefone">Preço:</label>
+                        <input type="text" id="inputForm" name="vendaPrice" required>
                     </div>
                     <button type="submit">Cadastrar</button>
-                    <button type="cancelar">Cancelar</button>
+                    <button type="cancel">Cancelar</button>
+                    <button type="update">Atualizar</button>
                 </form>
             </div>
         </section>
-        <section></section>
-        <section></section>
     </main>
 </body>
 </html>

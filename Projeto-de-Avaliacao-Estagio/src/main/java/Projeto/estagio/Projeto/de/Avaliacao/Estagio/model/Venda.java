@@ -6,16 +6,18 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table
 public class Venda {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
+    @Column(name = "Cliente", unique = false, nullable = false)
     private Cliente cliente;
     @Column
     private List<Produto> produtos;
