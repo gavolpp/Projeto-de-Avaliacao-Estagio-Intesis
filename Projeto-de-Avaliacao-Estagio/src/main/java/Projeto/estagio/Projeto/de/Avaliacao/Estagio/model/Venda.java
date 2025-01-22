@@ -17,7 +17,7 @@ public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "Cliente", unique = false, nullable = false)
+    @Column
     private Cliente cliente;
     @Column
     private List<Produto> produtos;
@@ -37,7 +37,6 @@ public class Venda {
         this.precoTotal = precoTotal;
         this.dataVenda = dataVenda;
         this.formaDePag = formaDePag;
-        clienteValidator(cliente);
     }
     //Getters and Setters
     public int getId() {
@@ -77,12 +76,4 @@ public class Venda {
     public void setFormaDePag(String formaDePag) {
         this.formaDePag = formaDePag;
     }
-
-    //metodo para verificar se cliente é nulo
-    public void clienteValidator(Cliente c)
-    {
-        if (c == null)
-            throw new IllegalArgumentException("Cliente não pode ser nulo.");
-    }
-
 }

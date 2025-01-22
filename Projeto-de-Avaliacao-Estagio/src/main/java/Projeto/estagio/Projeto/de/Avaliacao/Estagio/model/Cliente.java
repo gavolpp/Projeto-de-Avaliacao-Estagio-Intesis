@@ -18,7 +18,7 @@ public class Cliente {
     @Column
     private String nome;
     @Column
-    private double cpf;
+    private String cpf;
     @Column
     private String endereco;
     @Column
@@ -26,7 +26,7 @@ public class Cliente {
     // Construtores
     public Cliente() {
     }
-    public Cliente(int id, String nome, double cpf, String endereco, String telefone) {
+    public Cliente(int id, String nome, String cpf, String endereco, String telefone) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -46,10 +46,10 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public double getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    public void setCpf(double cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
     public String getEndereco() {
