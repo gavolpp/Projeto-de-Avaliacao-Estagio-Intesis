@@ -12,7 +12,7 @@ public interface VendaRepository extends JpaRepository <Venda, Integer> {
     //retornar lista de vendas por cliente
     List<Venda> findByClienteId(int id);
     //retornar lista de vendas por data de venda
-    List<Venda> findByDataVenda(LocalDate dataVenda);
+    List<Venda> findByDataVenda(String dataVenda);
     //retornar lista de vendas por forma de pagamento
     List<Venda> findByFormaDePag(String formaDePag);
     //retornar lista de vendas por preço total

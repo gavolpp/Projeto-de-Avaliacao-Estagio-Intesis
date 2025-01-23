@@ -13,13 +13,13 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
     //retornar lista por nome
     public List<Produto> getByNome(String nome);
     //retornar lista por parte do nome
-    @Query ("select a from Produto a where a.nome like ?1")
-    public List<Produto> findByParteN(String nome);
+    @Query ("select a from Produto a where a.nome like ?1%")
+    public List<Produto> getByParteN(String nome);
     //retornar lista por descrição
     public List<Produto> getByDescricao (String descricao);
     //retornar lista por categoria
     public List<Produto> getByCategoria(String categoria);
     //retornar lista por preço
-    @Query ("select a from Produto a where a.preco > ?1")
+    @Query ("select a from Produto a where a.preco < ?1")
     public List<Produto> getByPreco (double preco);
 }

@@ -25,13 +25,13 @@ public class ClienteController {
     private ClienteRepository clienteRepo;
     
     //metodo para inserir clientes
-    @PostMapping("/inserirCliente")
+    @PostMapping("/inserir")
     public void inserir(@RequestBody Cliente c){
         clienteRepo.save(c);
     }
     
     //metodo para listar todos os clientes
-    @GetMapping("/listarTodosC")
+    @GetMapping("/listarTodos")
     public List<Cliente> listarTodos(){
         return clienteRepo.findAll();
     }

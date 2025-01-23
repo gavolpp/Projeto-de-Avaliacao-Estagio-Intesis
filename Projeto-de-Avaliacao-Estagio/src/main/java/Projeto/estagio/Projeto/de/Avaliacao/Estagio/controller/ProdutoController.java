@@ -26,55 +26,55 @@ public class ProdutoController {
     private ProdutoRepository produtoRepo;
     
     //metodo para inserir produtos
-    @PostMapping("/inserirProduto")
+    @PostMapping("/inserir")
     public void inserir(@RequestBody Produto p){
         produtoRepo.save(p);
     }
     
     //metodo para listar todos os produtos
-    @GetMapping("/listarTodosP")
+    @GetMapping("/listarTodos")
     public List<Produto> listarTodos(){
         return produtoRepo.findAll();
     }
     
     //metodo para listar produto por id
-    @GetMapping("/listarPorIdP/{id}")
+    @GetMapping("/listarPorId/{id}")
     public Optional<Produto> listarPorId(@PathVariable int id){
         return produtoRepo.findById(id);
     }
     
     //metodo para listar produto por nome
-    @GetMapping("/listarPorNomeP/{nome}")
+    @GetMapping("/listarPorNome/{nome}")
     public List<Produto> listarPorNome(@PathVariable String nome){
         return produtoRepo.getByNome(nome);
     }
     
     //metodo para listar produto por parte do nome
-    @GetMapping("/listarPorParteNomeP/{nome}")
+    @GetMapping("/listarPorParteNome/{nome}")
     public List<Produto> listarPorParteNome(@PathVariable String nome){
-        return produtoRepo.findByParteN(nome);
+        return produtoRepo.getByParteN(nome);
     }
     
     //metodo para listar produto por descrição
-    @GetMapping("/listarPorDescricaoP/{descricao}")
+    @GetMapping("/listarPorDescricao/{descricao}")
     public List<Produto> listarPorDescricao(@PathVariable String descricao){
         return produtoRepo.getByDescricao(descricao);
     }
     
     //metodo para listar produto por categoria
-    @GetMapping("/listarPorCategoriaP/{categoria}")
+    @GetMapping("/listarPorCategoria/{categoria}")
     public List<Produto> listarPorCategoria(@PathVariable String categoria){
         return produtoRepo.getByCategoria(categoria);
     }
     
     //metodo para listar produto por preço menor do que o informado
-    @GetMapping("/listarPorPrecoP/{preco}")
+    @GetMapping("/listarPorPreco/{preco}")
     public List<Produto> listarPorPreco(@PathVariable double preco){
         return produtoRepo.getByPreco(preco);
     }
 
     //metodo para deletar um produto
-    @DeleteMapping("/deletarPorIdP/{id}")
+    @DeleteMapping("/deletarPorId/{id}")
     public void deletar(@PathVariable int id){
         produtoRepo.deleteById(id);
     }
