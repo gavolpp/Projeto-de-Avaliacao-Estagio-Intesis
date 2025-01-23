@@ -17,5 +17,4 @@ public interface VendaRepository extends JpaRepository <Venda, Integer> {
     List<Venda> findByFormaDePag(String formaDePag);
     //retornar lista de vendas por preço total
     List<Venda> findByPrecoTotal(Double precoTotal);
-    void inserirProduto(int idVenda, int idProduto, int quantidade);
 }

@@ -17,7 +17,7 @@ public class Produto {
      @Column
      private String nome;
      @Column
-     private double descricao;
+     private String descricao;
      @Column
      private String categoria;
      @Column
@@ -25,7 +25,7 @@ public class Produto {
      //Construtores
      public Produto() {
      }
-     public Produto(int id, String nome, double descricao, String categoria, double preco) {
+     public Produto(int id, String nome, String descricao, String categoria, double preco) {
          this.id = id;
          this.nome = nome;
          this.descricao = descricao;
@@ -46,10 +46,10 @@ public class Produto {
      public void setNome(String nome) {
          this.nome = nome;
      }
-     public double getDescricao() {
+     public String getDescricao() {
          return descricao;
      }
-     public void setDescricao(double descricao) {
+     public void setDescricao(String descricao) {
          this.descricao = descricao;
      }
      public String getCategoria() {

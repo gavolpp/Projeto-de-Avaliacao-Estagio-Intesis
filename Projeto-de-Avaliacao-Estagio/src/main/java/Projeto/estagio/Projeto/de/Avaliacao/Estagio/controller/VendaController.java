@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import Projeto.estagio.Projeto.de.Avaliacao.Estagio.model.Produto;
 import Projeto.estagio.Projeto.de.Avaliacao.Estagio.model.Venda;
+import Projeto.estagio.Projeto.de.Avaliacao.Estagio.repository.ProdutoRepository;
 import Projeto.estagio.Projeto.de.Avaliacao.Estagio.repository.VendaRepository;
 
 @RestController
@@ -20,6 +22,7 @@ public class VendaController {
     //dependência com venda repository
     @Autowired
     private VendaRepository vendaRepo;
+    private ProdutoRepository produtoRepo;
     
     //metodo para inserir vendas
     @PostMapping("/inserir")
@@ -28,10 +31,19 @@ public class VendaController {
     }
     
     //metodo para inserir produto na venda
-    @PostMapping("/inserirProduto/{vendaId}/{produtoId}/{quantidade}")
-    public void inserirProduto(@PathVariable int vendaId, @PathVariable int produtoId, @PathVariable int quantidade){
-        vendaRepo.inserirProduto(vendaId, produtoId, quantidade);
-    }
+    @PostMapping("/adicionarProduto/{vendaId}/{produtoId}/{quantidade}")
+    public Venda adicionarProduto(@PathVariable int vendaId, @PathVariable int produtoId, @PathVariable int quantidade) {
+    Venda venda = vendaRepo.findById(vendaId).orElseThrow(() -> new RuntimeException("Venda não encontrada"));
+    Produto produto = produtoRepo.findById(produtoId).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+    
+    // Adiciona o produto à venda
+    venda.getProdutos().add(produto);
+    
+    // Atualiza o preço total
+    venda.setPrecoTotal(venda.getPrecoTotal() + (produto.getPreco() * quantidade));
+    
+    return vendaRepo.save(venda);  // Atualiza a venda no banco de dados
+}
     
     //metodo para listar vendas por cliente
     @GetMapping("/listarPorCliente/{id}")

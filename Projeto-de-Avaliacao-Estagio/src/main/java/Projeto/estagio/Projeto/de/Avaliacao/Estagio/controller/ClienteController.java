@@ -56,7 +56,7 @@ public class ClienteController {
     //metodo para listar clientes por cpf
     @GetMapping("/listarPorCpf/{cpf}")
     public List<Cliente> listarPorCpf(@PathVariable String cpf){
-        return clienteRepo.findByCPF(cpf);
+        return clienteRepo.findByCpf(cpf);
     }
     
     //metodo para listar clientes por telefone
