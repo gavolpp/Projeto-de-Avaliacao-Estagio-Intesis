@@ -1,7 +1,8 @@
 package Projeto.estagio.Projeto.de.Avaliacao.Estagio.controller;
 //Venda Controller
 
-import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -104,6 +105,18 @@ public ResponseEntity<Venda> adicionarProduto(@PathVariable int vendaId, @PathVa
     vendaRepo.save(venda);
 
     return ResponseEntity.ok(venda);
+    }
+
+    //metodo para listar todas as vendas
+    @GetMapping("/listarTodos")
+    public List<Venda> listarTodos(){
+        return vendaRepo.findAll();
+    }    
+
+    //metodo para listar venda por id
+    @GetMapping("/listarPorId/{id}")
+    public Optional<Venda> listarPorId(@PathVariable int id){
+        return vendaRepo.findById(id);
     }
 
     //metodo para listar vendas por cliente

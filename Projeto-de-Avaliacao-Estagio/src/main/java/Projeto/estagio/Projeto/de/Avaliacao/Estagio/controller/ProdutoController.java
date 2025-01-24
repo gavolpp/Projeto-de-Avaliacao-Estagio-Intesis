@@ -74,17 +74,14 @@ public class ProdutoController {
     }
 
     //metodo para deletar um produto
-    @DeleteMapping("/deletarPorId/{id}")
+    @DeleteMapping("/deletar/{id}")
     public void deletar(@PathVariable int id){
         produtoRepo.deleteById(id);
     }
     
     //metodo para atualizar um produto
-    @PutMapping("/atualizarP")
+    @PutMapping("/atualizar")
     public Produto atualizar(@RequestBody Produto p){
         return produtoRepo.save(p);
     }
-
-
-
 }
